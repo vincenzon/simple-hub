@@ -1,0 +1,35 @@
+version: '3.4'
+
+x-common-vars:
+  &common-vars
+  JUPYTERLAB_PWD: sha1:abc123...
+  JUPYTERLAB_TOK: 1234567890
+
+services:
+
+  jupyterlab_alice:
+    build:
+      context: jupyterlab
+      args: *common-vars
+    image: jupyterlab_img
+    ports:
+      - 18010:8888
+    volumes:
+      - jupyterlab_volume_alice:/home/user
+      - jupyterlab_volume_shared:/home/user/shared
+
+  jupyterlab_bob:
+    build:
+      context: jupyterlab
+      args: *common-vars
+    image: jupyterlab_img
+    ports:
+      - 18020:8888
+    volumes:
+      - jupyterlab_volume_bob:/home/user
+      - jupyterlab_volume_shared:/home/user/shared
+
+volumes:
+  jupyterlab_volume_shared: null
+  jupyterlab_volume_alice: null
+  jupyterlab_volume_bob: null
