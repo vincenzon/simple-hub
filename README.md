@@ -11,13 +11,13 @@ where a turn key deployment of Jupyter Hub was available.
 
 ## Existing Solutions
 
-I found a couple of options. The first was [The Littlest Jupyter Hub](tljh.jupyter.org). The docs for Jupyter Hub
+I found a couple of options. The first was [The Littlest Jupyter Hub](https://tljh.jupyter.org). The docs for Jupyter Hub
 suggested TLJH was a perfect fit, and deployment would be a breeze. My requirements were mostly standard,
 with a few exceptions. One, the whole deployment needed to be containerized, and two it needed to be
 easy to customize the user's Jupyter environment. These customizations turned out to be too much for me and TLJH. After
 many attempts and deep dive debugging sessions I abandoned TLJH as unworkable.
 
-The Jupyter Hub docs also suggest a kubernetes based deployment, [Zero to Jupyter Hub](zero-to-jupyterhub.readthedocs.io). I have wanted to
+The Jupyter Hub docs also suggest a kubernetes based deployment, [Zero to Jupyter Hub](https://zero-to-jupyterhub.readthedocs.io). I have wanted to
 dip my toe into the fashionable kubernetes waters and here was an opportunity. I recognized my lack of
 familiarity with kubernetes so initially I dispensed with any non-standard customizations just to see
 what the process of deployment was like. I immediately hit obstacles. Although the documentation is
@@ -72,7 +72,7 @@ from the top level directory.
 
 ## Tailscale
 
-It's all well and good to have multiple user jupyterlabs running on a server, but the users need access to them. As configured, a user just needs access to a single port on the server. One could provide that access using `ssh` and probably could secure it with some complex port forwarding gymnastics. However, with [Tailscale](tailscale.com), it is a simple matter to grant users secure access to a single port on a server.
+It's all well and good to have multiple user jupyterlabs running on a server, but the users need access to them. As configured, a user just needs access to a single port on the server. One could provide that access using `ssh` and probably could secure it with some complex port forwarding gymnastics. However, with [Tailscale](https://tailscale.com), it is a simple matter to grant users secure access to a single port on a server.
 
 In order to do so, install tailscale on the Jupyter Lab server (in fact, you might want to install tailscale on all your devices to gain access to them wherever you roam). Use the [sharing feature](https://tailscale.com/kb/1084/sharing/) to create a link for each Jupyter Lab user. This link will add the server to the user's tailscale network allowing them to access it as if it were on their local network.
 
